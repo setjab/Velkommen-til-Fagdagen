@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velkommen til Fagdagen 03.03</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+        }
+        .welcome {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 8em;
+            font-weight: bold;
+            text-align: center;
+            background-image: linear-gradient(90deg, red, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px white;
+            animation: glow 10s infinite alternate;
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 30px red, 0 0 50px yellow; }
+            50% { text-shadow: 0 0 40px green, 0 0 60px blue, 0 0 70px indigo; }
+            100% { text-shadow: 0 0 50px violet, 0 0 60px pink, 0 0 80px red; }
+        }
+        .heart {
+            position: absolute;
+            font-size: 40px;
+            color: red;
+            opacity: 0.8;
+            animation: float 4s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(0.8); opacity: 1; }
+            100% { transform: translate(calc(150px - 300px * random()), calc(150px - 300px * random())) scale(1.8); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome">Velkommen til Fagdagen 03.03</div>
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤";
+            document.body.appendChild(heart);
+            
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = Math.random() * window.innerHeight + "px";
+            heart.style.fontSize = Math.random() * 50 + 20 + "px";
+            heart.style.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            heart.style.animationDuration = Math.random() * 2.5 + 2 + "s";
+            
+            setTimeout(() => { heart.remove(); }, 4000);
+        }
+        setInterval(createHeart, 100);
+    </script>
+</body>
+</html>
