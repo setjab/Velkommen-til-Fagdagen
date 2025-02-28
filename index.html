@@ -9,13 +9,15 @@
             margin: 0;
             overflow: hidden;
             background: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
         }
         .welcome {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 8em;
+            font-size: 5em;
             font-weight: bold;
             text-align: center;
             background-image: linear-gradient(90deg, red, yellow, green, blue, indigo, violet);
@@ -23,11 +25,32 @@
             color: transparent;
             text-shadow: 0 0 10px white;
             animation: glow 10s infinite alternate;
+            margin-bottom: 20px;
         }
         @keyframes glow {
             0% { text-shadow: 0 0 30px red, 0 0 50px yellow; }
             50% { text-shadow: 0 0 40px green, 0 0 60px blue, 0 0 70px indigo; }
             100% { text-shadow: 0 0 50px violet, 0 0 60px pink, 0 0 80px red; }
+        }
+        .circle-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            background: linear-gradient(135deg, blue, purple);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
         .heart {
             position: absolute;
@@ -44,6 +67,12 @@
 </head>
 <body>
     <div class="welcome">Velkommen til Fagdagen 03.03</div>
+    <div class="circle-container">
+        <div class="circle">Status</div>
+        <div class="circle">Fagsamtale</div>
+        <div class="circle">Hybridmodell</div>
+        <div class="circle">SØLVE</div>
+    </div>
     <script>
         function createHeart() {
             const heart = document.createElement("div");
